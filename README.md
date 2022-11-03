@@ -12,23 +12,28 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Summary
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### State Management
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The state management is done with [Redux Toolkit (RTK)](https://redux-toolkit.js.org/).
+I chose to use RTK because it is a very simple and easy to use library. It also has a lot of features that make it very powerful like RTK Query which was used to fetch data.
+In a production app, I would use RTK Query to fetch data and RTK to manage the state of the app for scale and performance compared to React Context API.
 
-## Learn More
+### Styling
 
-To learn more about Next.js, take a look at the following resources:
+Semantic UI React was used for styling. I chose to use this library because it is very easy to use and has a lot of components that can be used to build the app quickly to keep things simple.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Testing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+I used Jest and React Testing Library to test the app, included some integration and unit tests. Jest-each is very handy for testing multiple scenarios.
 
-## Deploy on Vercel
+### Suggestions and Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Didn't want to spend too much time on this so I didn't add some features, but I would add those features if I had more time.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Add Error UI for when there is an error fetching data
+- Persist state in local storage for basket items, currently it resets when the page is refreshed
+- Improve tests, add more tests for components, pages and snapshots to catch unexpected UI changes. Ensure correct endpoints are being called and data is being fetched correctly.
+- Accessibility improvements, add aria labels and improve the UI for screen readers.
+- Split up the components into smaller components to make them more reusable and easier to test

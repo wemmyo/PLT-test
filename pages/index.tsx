@@ -1,7 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { Container, Divider, Loader, Menu, Dropdown } from "semantic-ui-react";
+import {
+  Container,
+  Divider,
+  Loader,
+  Menu,
+  Dropdown,
+  Message,
+} from "semantic-ui-react";
 
 import ProductList from "../src/components/ProductList";
 import {
@@ -21,6 +28,17 @@ export default function Home() {
       <Loader active inline="centered">
         Loading
       </Loader>
+    );
+  }
+
+  if (products.isError || menus.isError) {
+    return (
+      <Message negative>
+        <Message.Header>
+          We're currently experiencing some technical difficulties.
+        </Message.Header>
+        <p>Please try again later</p>
+      </Message>
     );
   }
 

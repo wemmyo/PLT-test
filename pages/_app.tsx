@@ -1,6 +1,13 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "semantic-ui-css/semantic.min.css";
+import "../styles/globals.css";
+import { Provider } from "react-redux";
+import type { AppProps } from "next/app";
+import { store } from "../src/store";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }

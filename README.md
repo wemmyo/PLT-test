@@ -12,6 +12,11 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Screenshots
+<img width="1439" alt="Screenshot 2022-11-03 at 12 32 28 pm" src="https://user-images.githubusercontent.com/40142093/199721466-2371f234-a13f-4147-a5e4-d75c4b1293c3.png">
+<img width="328" alt="Screenshot 2022-11-03 at 12 32 07 pm" src="https://user-images.githubusercontent.com/40142093/199721476-edb61705-3e9a-4a09-bf31-83185812bd97.png">
+
+
 ## Summary
 
 ### State Management

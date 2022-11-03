@@ -21,6 +21,7 @@ export default function BasketItem({
       <Item.Image src={product.img} alt={product.name} />
       <Item.Content>
         <Item.Header>{product.name}</Item.Header>
+        <Item.Meta>{product.price}</Item.Meta>
         <Item.Meta>{product.colour}</Item.Meta>
 
         <Item.Extra>

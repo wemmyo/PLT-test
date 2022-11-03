@@ -1,4 +1,4 @@
-import { fireEvent } from "@testing-library/react";
+import { fireEvent, getAllByRole, getByRole } from "@testing-library/react";
 import each from "jest-each";
 import { renderWithProviders } from "../../utils/test-utils";
 import Basket from "../basket";
@@ -39,7 +39,7 @@ describe("Basket", () => {
         },
       },
     });
-    getByText("PLT");
+    getByText("PRETTYLITTLETHING");
     getByText("Basket");
   });
 
@@ -60,16 +60,24 @@ describe("Basket", () => {
     }
   );
   it("should not decrement total items quantity below 0", () => {
-    const { getByText } = renderWithProviders(<Basket />, {
-      preloadedState: {
-        basket: {
-          products: mockBasketItems,
+    const { getByText, getAllByRole, getAllByText } = renderWithProviders(
+      <Basket />,
+      {
+        preloadedState: {
+          basket: {
+            products: mockBasketItems,
+          },
         },
-      },
-    });
-    const decrementButton = getByText("-");
+      }
+    );
+
+    const basketTotal = getAllByText("Total items: ", { exact: false })[0];
+
+    expect(basketTotal).toHaveTextContent("0");
+    const decrementButton = getAllByRole("button", { name: "-" })[0];
     fireEvent.click(decrementButton);
-    getByText("0");
+
+    expect(basketTotal).toHaveTextContent("0");
   });
   it("should increase total items quantity", () => {
     const { getAllByRole, getAllByText } = renderWithProviders(<Basket />, {
@@ -105,7 +113,7 @@ describe("Basket", () => {
       },
     });
     expect(getAllByTestId("basket-card")).toHaveLength(3);
-    const removeButton = getAllByRole("button", { name: "remove" })[0];
+    const removeButton = getAllByRole("button", { name: /remove/i })[0];
     fireEvent.click(removeButton);
     expect(getAllByTestId("basket-card")).toHaveLength(2);
   });

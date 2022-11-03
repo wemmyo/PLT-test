@@ -32,6 +32,6 @@ describe("<BasketItem/>", () => {
     );
     screen.getByText("-");
     screen.getByText("+");
-    screen.getByText("remove");
+    screen.getByText(/remove/i);
   });
 });
